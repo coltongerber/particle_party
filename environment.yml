@@ -1,0 +1,10 @@
+name: openmm_env
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - openmm
+  - openmmtools
+  - pip:
+    - nglview
