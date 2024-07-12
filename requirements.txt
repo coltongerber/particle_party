@@ -1,7 +1,0 @@
-numpy
-scipy
-matplotlib
-mdtraj
-nglview
-lammps
-openmm
