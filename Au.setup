@@ -23,13 +23,12 @@ fix mynvt all nvt temp $T $T $(dt*1000)
 
 velocity all create $T 90909 rot yes mom yes dist gaussian
 
-dump mydump all atom ${writefreq} atom.lammpstrj
+dump mydump all atom ${writefreq} out/atom.lammpstrj
 thermo_style custom step temp etotal ke pe
 thermo 1000
 
 
-
-write_data initial.data
+write_data out/initial.data
 
 run 10000
 unfix mynvt
