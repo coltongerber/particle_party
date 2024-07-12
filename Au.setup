@@ -2,18 +2,20 @@ units metal
 dimension 3
 boundary p p p
 atom_style atomic
+variable latparam equal 4.08
 
-region myreg block 0 10 0 10 0 10
-create_box 1 myreg
-lattice fcc 4.08 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
-create_atoms 1 region myreg
+lattice fcc ${latparam}
+region whole block 0 4 0 4 0 4
+create_box 1 whole
+lattice fcc ${latparam} orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+create_atoms 1 region whole
 
 pair_style lj/cut 9.6929800
 pair_coeff * * 2.3058000 2.4232400
 mass 1 196.97
 
 timestep 0.001
-fix mynpt all npt temp 300.0 300.0 0.1 iso 1.0 1.0 1.0
+fix mynpt all npt temp 2000.0 2000.0 0.1 iso 1.0 1.0 1.0
 
 dump mydump all atom 1000 atom.lammpstrj
 thermo_style custom step temp etotal
