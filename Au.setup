@@ -4,9 +4,6 @@ boundary p p p
 atom_style atomic
 variable latparam equal 4.08
 variable size equal 4
-variable writefreq equal 10
-variable dt equal 0.001
-variable T equal 2000.0
 
 lattice fcc ${latparam}
 region whole block 0 ${size} 0 ${size} 0 ${size}
@@ -18,20 +15,13 @@ pair_style lj/cut 9.6929800
 pair_coeff * * 2.3058000 2.4232400
 mass 1 196.97
 
-timestep ${dt}
-fix mynvt all nvt temp $T $T $(dt*1000)
+timestep 0.001
+fix mynpt all npt temp 2000.0 2000.0 0.1 iso 1.0 1.0 1.0
 
-velocity all create $T 90909 rot yes mom yes dist gaussian
-
-dump mydump all atom ${writefreq} atom.lammpstrj
-thermo_style custom step temp etotal ke pe
+dump mydump all atom 1000 atom.lammpstrj
+thermo_style custom step temp etotal
 thermo 1000
-
-
 
 write_data initial.data
 
-run 10000
-unfix mynvt
-fix mynvt all nvt temp $T 1.0 $(dt*1000)
-run 10000
+run 25000
