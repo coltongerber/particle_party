@@ -177,3 +177,10 @@ ATOMIC_MASS = {
     'Db': 268, 'Sg': 269, 'Bh': 270, 'Hs': 270, 'Mt': 278, 'Ds': 281, 'Rg': 282, 'Cn': 285, 'Nh': 286, 
     'Fl': 289, 'Mc': 290, 'Lv': 293, 'Ts': 294, 'Og': 294, 'D': 2.013553212712, 'T': 3.0155007134
     }
+
+
+CRYSTAL_STRUCTURE = {
+    'Au':    {'symmetry': 'fcc', 'lattice_param': 4.08},
+    'Li':    {'symmetry': 'bcc', 'lattice_param': 3.44},
+    'W':     {'symmetry': 'bcc', 'lattice_param': 3.165}, 
+    }
